@@ -224,7 +224,7 @@ int H264StreamReader::writeSEIMessage(uint8_t* dstBuffer, uint8_t* dstEnd, SEIUn
     if (dstEnd - curPos < 4)
         THROW(ERR_COMMON, "H264 stream error: Not enough buffer for write headers");
 
-    uint8_t tmpBuffer[256];
+    uint8_t tmpBuffer[512];
     BitStreamWriter writer;
     curPos = writeNalPrefix(curPos);
     writer.setBuffer(tmpBuffer, tmpBuffer + sizeof(tmpBuffer));
